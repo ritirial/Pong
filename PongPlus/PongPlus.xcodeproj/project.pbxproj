@@ -7,27 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB6A6B222AE8441B000A3D02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A6B212AE8441B000A3D02 /* AppDelegate.swift */; };
-		FB6A6B242AE8441B000A3D02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A6B232AE8441B000A3D02 /* SceneDelegate.swift */; };
-		FB6A6B262AE8441B000A3D02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6A6B252AE8441B000A3D02 /* ViewController.swift */; };
-		FB6A6B292AE8441B000A3D02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6A6B272AE8441B000A3D02 /* Main.storyboard */; };
-		FB6A6B2B2AE8441D000A3D02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB6A6B2A2AE8441D000A3D02 /* Assets.xcassets */; };
-		FB6A6B2E2AE8441D000A3D02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6A6B2C2AE8441D000A3D02 /* LaunchScreen.storyboard */; };
+		356CFC302AE9CE2700E0B25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CFC2F2AE9CE2700E0B25D /* AppDelegate.swift */; };
+		356CFC322AE9CE2700E0B25D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC312AE9CE2700E0B25D /* GameScene.sks */; };
+		356CFC342AE9CE2700E0B25D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC332AE9CE2700E0B25D /* Actions.sks */; };
+		356CFC362AE9CE2700E0B25D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CFC352AE9CE2700E0B25D /* GameScene.swift */; };
+		356CFC382AE9CE2700E0B25D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CFC372AE9CE2700E0B25D /* GameViewController.swift */; };
+		356CFC3B2AE9CE2700E0B25D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC392AE9CE2700E0B25D /* Main.storyboard */; };
+		356CFC3D2AE9CE2A00E0B25D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC3C2AE9CE2A00E0B25D /* Assets.xcassets */; };
+		356CFC402AE9CE2A00E0B25D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC3E2AE9CE2A00E0B25D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB6A6B1E2AE8441B000A3D02 /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB6A6B212AE8441B000A3D02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB6A6B232AE8441B000A3D02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB6A6B252AE8441B000A3D02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB6A6B282AE8441B000A3D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FB6A6B2A2AE8441D000A3D02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FB6A6B2D2AE8441D000A3D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FB6A6B2F2AE8441D000A3D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		356CFC2C2AE9CE2700E0B25D /* PongPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PongPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		356CFC2F2AE9CE2700E0B25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		356CFC312AE9CE2700E0B25D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		356CFC332AE9CE2700E0B25D /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		356CFC352AE9CE2700E0B25D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		356CFC372AE9CE2700E0B25D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		356CFC3A2AE9CE2700E0B25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		356CFC3C2AE9CE2A00E0B25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		356CFC3F2AE9CE2A00E0B25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FB6A6B1B2AE8441B000A3D02 /* Frameworks */ = {
+		356CFC292AE9CE2700E0B25D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +40,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FB6A6B152AE8441B000A3D02 = {
+		356CFC232AE9CE2700E0B25D = {
 			isa = PBXGroup;
 			children = (
-				FB6A6B202AE8441B000A3D02 /* Pong */,
-				FB6A6B1F2AE8441B000A3D02 /* Products */,
+				356CFC2E2AE9CE2700E0B25D /* PongPlus */,
+				356CFC2D2AE9CE2700E0B25D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FB6A6B1F2AE8441B000A3D02 /* Products */ = {
+		356CFC2D2AE9CE2700E0B25D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB6A6B1E2AE8441B000A3D02 /* Pong.app */,
+				356CFC2C2AE9CE2700E0B25D /* PongPlus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FB6A6B202AE8441B000A3D02 /* Pong */ = {
+		356CFC2E2AE9CE2700E0B25D /* PongPlus */ = {
 			isa = PBXGroup;
 			children = (
-				FB6A6B212AE8441B000A3D02 /* AppDelegate.swift */,
-				FB6A6B232AE8441B000A3D02 /* SceneDelegate.swift */,
-				FB6A6B252AE8441B000A3D02 /* ViewController.swift */,
-				FB6A6B272AE8441B000A3D02 /* Main.storyboard */,
-				FB6A6B2A2AE8441D000A3D02 /* Assets.xcassets */,
-				FB6A6B2C2AE8441D000A3D02 /* LaunchScreen.storyboard */,
-				FB6A6B2F2AE8441D000A3D02 /* Info.plist */,
+				356CFC2F2AE9CE2700E0B25D /* AppDelegate.swift */,
+				356CFC312AE9CE2700E0B25D /* GameScene.sks */,
+				356CFC332AE9CE2700E0B25D /* Actions.sks */,
+				356CFC352AE9CE2700E0B25D /* GameScene.swift */,
+				356CFC372AE9CE2700E0B25D /* GameViewController.swift */,
+				356CFC392AE9CE2700E0B25D /* Main.storyboard */,
+				356CFC3C2AE9CE2A00E0B25D /* Assets.xcassets */,
+				356CFC3E2AE9CE2A00E0B25D /* LaunchScreen.storyboard */,
 			);
-			path = Pong;
+			path = PongPlus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB6A6B1D2AE8441B000A3D02 /* Pong */ = {
+		356CFC2B2AE9CE2700E0B25D /* PongPlus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB6A6B322AE8441D000A3D02 /* Build configuration list for PBXNativeTarget "Pong" */;
+			buildConfigurationList = 356CFC432AE9CE2A00E0B25D /* Build configuration list for PBXNativeTarget "PongPlus" */;
 			buildPhases = (
-				FB6A6B1A2AE8441B000A3D02 /* Sources */,
-				FB6A6B1B2AE8441B000A3D02 /* Frameworks */,
-				FB6A6B1C2AE8441B000A3D02 /* Resources */,
+				356CFC282AE9CE2700E0B25D /* Sources */,
+				356CFC292AE9CE2700E0B25D /* Frameworks */,
+				356CFC2A2AE9CE2700E0B25D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Pong;
-			productName = Pong;
-			productReference = FB6A6B1E2AE8441B000A3D02 /* Pong.app */;
+			name = PongPlus;
+			productName = PongPlus;
+			productReference = 356CFC2C2AE9CE2700E0B25D /* PongPlus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FB6A6B162AE8441B000A3D02 /* Project object */ = {
+		356CFC242AE9CE2700E0B25D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					FB6A6B1D2AE8441B000A3D02 = {
-						CreatedOnToolsVersion = 15.0;
+					356CFC2B2AE9CE2700E0B25D = {
+						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = FB6A6B192AE8441B000A3D02 /* Build configuration list for PBXProject "Pong" */;
+			buildConfigurationList = 356CFC272AE9CE2700E0B25D /* Build configuration list for PBXProject "PongPlus" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +114,57 @@
 				en,
 				Base,
 			);
-			mainGroup = FB6A6B152AE8441B000A3D02;
-			productRefGroup = FB6A6B1F2AE8441B000A3D02 /* Products */;
+			mainGroup = 356CFC232AE9CE2700E0B25D;
+			productRefGroup = 356CFC2D2AE9CE2700E0B25D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB6A6B1D2AE8441B000A3D02 /* Pong */,
+				356CFC2B2AE9CE2700E0B25D /* PongPlus */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FB6A6B1C2AE8441B000A3D02 /* Resources */ = {
+		356CFC2A2AE9CE2700E0B25D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB6A6B2E2AE8441D000A3D02 /* LaunchScreen.storyboard in Resources */,
-				FB6A6B2B2AE8441D000A3D02 /* Assets.xcassets in Resources */,
-				FB6A6B292AE8441B000A3D02 /* Main.storyboard in Resources */,
+				356CFC3B2AE9CE2700E0B25D /* Main.storyboard in Resources */,
+				356CFC322AE9CE2700E0B25D /* GameScene.sks in Resources */,
+				356CFC3D2AE9CE2A00E0B25D /* Assets.xcassets in Resources */,
+				356CFC402AE9CE2A00E0B25D /* LaunchScreen.storyboard in Resources */,
+				356CFC342AE9CE2700E0B25D /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FB6A6B1A2AE8441B000A3D02 /* Sources */ = {
+		356CFC282AE9CE2700E0B25D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB6A6B262AE8441B000A3D02 /* ViewController.swift in Sources */,
-				FB6A6B222AE8441B000A3D02 /* AppDelegate.swift in Sources */,
-				FB6A6B242AE8441B000A3D02 /* SceneDelegate.swift in Sources */,
+				356CFC362AE9CE2700E0B25D /* GameScene.swift in Sources */,
+				356CFC382AE9CE2700E0B25D /* GameViewController.swift in Sources */,
+				356CFC302AE9CE2700E0B25D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FB6A6B272AE8441B000A3D02 /* Main.storyboard */ = {
+		356CFC392AE9CE2700E0B25D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FB6A6B282AE8441B000A3D02 /* Base */,
+				356CFC3A2AE9CE2700E0B25D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FB6A6B2C2AE8441D000A3D02 /* LaunchScreen.storyboard */ = {
+		356CFC3E2AE9CE2A00E0B25D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FB6A6B2D2AE8441D000A3D02 /* Base */,
+				356CFC3F2AE9CE2A00E0B25D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +172,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FB6A6B302AE8441D000A3D02 /* Debug */ = {
+		356CFC412AE9CE2A00E0B25D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +235,7 @@
 			};
 			name = Debug;
 		};
-		FB6A6B312AE8441D000A3D02 /* Release */ = {
+		356CFC422AE9CE2A00E0B25D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,7 +291,7 @@
 			};
 			name = Release;
 		};
-		FB6A6B332AE8441D000A3D02 /* Debug */ = {
+		356CFC442AE9CE2A00E0B25D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -293,10 +299,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,7 +310,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mx.tec.A01327530.Pong;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.tec.A01327530.PongPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -312,7 +318,7 @@
 			};
 			name = Debug;
 		};
-		FB6A6B342AE8441D000A3D02 /* Release */ = {
+		356CFC452AE9CE2A00E0B25D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -320,10 +326,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -331,7 +337,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mx.tec.A01327530.Pong;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.tec.A01327530.PongPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,25 +348,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB6A6B192AE8441B000A3D02 /* Build configuration list for PBXProject "Pong" */ = {
+		356CFC272AE9CE2700E0B25D /* Build configuration list for PBXProject "PongPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB6A6B302AE8441D000A3D02 /* Debug */,
-				FB6A6B312AE8441D000A3D02 /* Release */,
+				356CFC412AE9CE2A00E0B25D /* Debug */,
+				356CFC422AE9CE2A00E0B25D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB6A6B322AE8441D000A3D02 /* Build configuration list for PBXNativeTarget "Pong" */ = {
+		356CFC432AE9CE2A00E0B25D /* Build configuration list for PBXNativeTarget "PongPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB6A6B332AE8441D000A3D02 /* Debug */,
-				FB6A6B342AE8441D000A3D02 /* Release */,
+				356CFC442AE9CE2A00E0B25D /* Debug */,
+				356CFC452AE9CE2A00E0B25D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FB6A6B162AE8441B000A3D02 /* Project object */;
+	rootObject = 356CFC242AE9CE2700E0B25D /* Project object */;
 }
