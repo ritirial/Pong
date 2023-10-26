@@ -27,8 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scorePlayerLabel: SKLabelNode!
     var scoreOpponentLabel: SKLabelNode!
     var gameStart : SKLabelNode!
-    var buttonUp : SKLabelNode!
-    var buttonDown : SKLabelNode!
+    var buttonUp : SKSpriteNode!
+    var buttonDown : SKSpriteNode!
     var borderPadding: CGFloat = 11.0;
 
     //control de propiedades de pelota
@@ -84,8 +84,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //asigna objetos de botones
         gameStart = (self.childNode(withName: "//gameStart") as! SKLabelNode)
-        buttonUp = (self.childNode(withName: "//buttonUp") as! SKLabelNode)
-        buttonDown = (self.childNode(withName: "//buttonDown") as! SKLabelNode)
+        buttonUp = (self.childNode(withName: "//buttonUp") as! SKSpriteNode)
+        buttonDown = (self.childNode(withName: "//buttonDown") as! SKSpriteNode)
 
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -227,15 +227,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //listener para soltar touch
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            //la partida está en curso
-            if gameStart.isHidden {
-                if buttonUp.contains(touch.location(in: self)) {
-                    movePlayerUp = true
-                }
-                if buttonDown.contains(touch.location(in: self)) {
-                    movePlayerDown = true
-                }
+        let touch = touches.first!
+        //la partida está en curso
+        if gameStart.isHidden {
+            if buttonUp.contains(touch.location(in: self)) {
+                movePlayerUp = false
+            }
+            if buttonDown.contains(touch.location(in: self)) {
+                movePlayerDown = false
             }
         }
     }
