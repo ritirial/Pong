@@ -27,22 +27,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scorePlayerLabel: SKLabelNode!
     var scoreOpponentLabel: SKLabelNode!
     var gameStart : SKLabelNode!
+    var gameResult : SKLabelNode!
     var buttonUp : SKSpriteNode!
     var buttonDown : SKSpriteNode!
+    var fondo: SKSpriteNode!
     var borderPadding: CGFloat = 11.0;
 
     //control de propiedades de pelota
     var ballVelocityX: CGFloat = 0.0;
     var ballVelocityY: CGFloat = 0.0;
-    var ballVelocityIncrease: CGFloat = 0.6;
+    var ballVelocityIncrease: CGFloat = 0.8;
     
     //control para botones de movimiento
     var movePlayerUp = false;
     var movePlayerDown = false;
 
     //control propiedades de barras
-    var playerVelocity: CGFloat = 6.0;
-    var opponentVelocity: CGFloat = 10.0;
+    var playerVelocity: CGFloat = 8.0;
+    var opponentVelocity: CGFloat = 7.0;
     var opponentReactionTime: CGFloat = 1 / 60;
     
     //random de min a max personalizados
@@ -58,6 +60,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //escena es visible, primer codigo
     override func didMove(to view: SKView) {
+        backgroundColor = SKColor(red: 46.0 / 255.0, green: 56.0 / 255.0, blue: 49.0 / 255.0, alpha: 1.0)
+        
         //asigna propiedades a barra del jugador
         player = (self.childNode(withName: "//player") as! SKSpriteNode)
         player.zPosition = 0
@@ -83,9 +87,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreOpponentLabel = (self.childNode(withName: "//scoreOpponent") as! SKLabelNode)
         
         //asigna objetos de botones
+        gameResult = (self.childNode(withName: "//resultado") as! SKLabelNode)
         gameStart = (self.childNode(withName: "//gameStart") as! SKLabelNode)
         buttonUp = (self.childNode(withName: "//buttonUp") as! SKSpriteNode)
         buttonDown = (self.childNode(withName: "//buttonDown") as! SKSpriteNode)
+        
+        fondo = (self.childNode(withName: "//field") as! SKSpriteNode)
 
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -93,30 +100,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //crea pelota y asigna sus velocidades
     func launchBall(fromPlayer: Bool) {
-        ball = SKSpriteNode(imageNamed: "ball")
-        //genera la pelota al centro
-        ball.position = CGPoint(x: 0.0, y: 0.0)
-        ball.zPosition = 0
-        
-        //ballVelocityX = random(min: 4.0, max: 6.0) * CGFloat(randomSign())
-        //ballVelocityY = random(min: 0.0, max: 6.0) * CGFloat(randomSign())
-        ballVelocityX = 4.0
-        //decide quien lanza pelota
-        if !fromPlayer {
-            ballVelocityX = ballVelocityX * -1
+        if (gameResult.isHidden) {
+            ball = SKSpriteNode(imageNamed: "ball")
+            //genera la pelota al centro
+            ball.position = CGPoint(x: 0.0, y: 0.0)
+            ball.zPosition = 0
+            
+            //ballVelocityX = random(min: 4.0, max: 6.0) * CGFloat(randomSign())
+            //ballVelocityY = random(min: 0.0, max: 6.0) * CGFloat(randomSign())
+            ballVelocityX = 7.0
+            //decide quien lanza pelota
+            if !fromPlayer {
+                ballVelocityX = ballVelocityX * -1
+            }
+            ballVelocityY = 0.0
+            
+            //asigna fisica
+            ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
+            ball.physicsBody?.isDynamic = true
+            ball.physicsBody?.categoryBitMask = PhysicsCategory.ball
+            ball.physicsBody?.contactTestBitMask = PhysicsCategory.bar
+            ball.physicsBody?.collisionBitMask = PhysicsCategory.none
+            ball.physicsBody?.usesPreciseCollisionDetection = true
+            
+            //instancia
+            addChild(ball)
         }
-        ballVelocityY = 0.0
-        
-        //asigna fisica
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
-        ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.categoryBitMask = PhysicsCategory.ball
-        ball.physicsBody?.contactTestBitMask = PhysicsCategory.bar
-        ball.physicsBody?.collisionBitMask = PhysicsCategory.none
-        ball.physicsBody?.usesPreciseCollisionDetection = true
-        
-        //instancia
-        addChild(ball)
         
         //cambia la posición acorde a velocidad
         //let move = SKAction.move(to: CGPoint(x: ball.position.x + ballVelocityX, y: ball.position.y + ballVelocityY), duration: TimeInterval(0.001))
@@ -151,20 +160,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 newPositionY -= opponentVelocity
             }
             
-            let move = SKAction.move(to: CGPoint(x: opponent.position.x, y: newPositionY), duration: TimeInterval(opponentReactionTime))
-            opponent.run(move)
+            //let move = SKAction.move(to: CGPoint(x: opponent.position.x, y: newPositionY), duration: TimeInterval(opponentReactionTime))
+            //opponent.run(move)
         }
     }
     
     //llamada cuando se dectò colisiòn entre barra y pelota
     func ballCollidedWithBar(bar: SKSpriteNode, ball: SKSpriteNode) {
         //aumenta velocidad en x
-        ballVelocityX = ballVelocityX + ballVelocityIncrease
+        ballVelocityX = ballVelocityX + (ballVelocityX > 0 ? ballVelocityIncrease : -ballVelocityIncrease)
         //invierte la velocidad en x (rebote)
         ballVelocityX = ballVelocityX * -1
         
+        print(ballVelocityX)
+        
         //desvia pelota en Y dependiendo de distancia al centro de la barra
-        ballVelocityY = 6.0 * (ball.position.y - bar.position.y) / (bar.size.height / 2)
+        ballVelocityY = 10.0 * (ball.position.y - bar.position.y) / (bar.size.height / 2)
     }
     
     //listener de colisiones
@@ -188,18 +199,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //oculta boton "Comenzar"
         gameStart.isHidden = true
-        
+        gameResult.isHidden = true
+
         //lanza pelota
         //run(SKAction.run(launchBall))
         //lanzamiento inicial hacia el jugador
         launchBall(fromPlayer: false)
         //activar movimiento oponente
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(catchBall), SKAction.wait(forDuration: opponentReactionTime)])))
+        //run(SKAction.repeatForever(SKAction.sequence([SKAction.run(catchBall), SKAction.wait(forDuration: opponentReactionTime)])))
     }
     
     
     func gameOver() {
-        
+        var fin = false
+        if scorePlayer == 5 {
+            gameResult.text = "Ganaste !!"
+            fin = true
+        } else if scoreOponent == 5 {
+            gameResult.text = "Perdiste :["
+            fin = true
+        }
+        if fin {
+            //reinicia posicion de barras
+            player.position.y = 0.0
+            opponent.position.y = 0.0
+            
+            //oculta boton "Comenzar"
+            gameStart.isHidden = false
+            gameResult.isHidden = false
+        }
     }
     
     //listener para touch
@@ -258,18 +286,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             //valida que hay una pelota instanciada
             if ball != nil {
+                
+                var newPositionY = opponent.position.y
+                //paso limite arriba
+                if ball.position.y > opponent.position.y + opponent.size.height / 2 {
+                    newPositionY += opponentVelocity
+                }
+                //paso limite abajo
+                if ball.position.y < opponent.position.y - opponent.size.height / 2 {
+                    newPositionY -= opponentVelocity
+                }
+                opponent.position.y = newPositionY
+                
                 //detecta si la pelota ha salido de pantalla
-                if ball.position.x < -size.width / 2 - ball.size.width / 2 {
+                if ball.position.x < -fondo.size.width / 2 - ball.size.width / 2 {
                     //salio del lado del jugador, punto para oponente
                     ball.removeFromParent()
                     scoreOponent += 1
                     scoreOpponentLabel.text = String(scoreOponent)
+                    gameOver()
                     launchBall(fromPlayer: true)
-                } else if ball.position.x > size.width / 2 + ball.size.width / 2 {
+                } else if ball.position.x > fondo.size.width / 2 + ball.size.width / 2 {
                     //salio del lado del oponente, punto para jugador
                     ball.removeFromParent()
                     scorePlayer += 1
                     scorePlayerLabel.text = String(scorePlayer)
+                    gameOver()
                     launchBall(fromPlayer: false)
                 } else {
                     //no ha salido, sigue moviendo
