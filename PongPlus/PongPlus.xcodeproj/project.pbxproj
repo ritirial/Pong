@@ -15,6 +15,10 @@
 		356CFC3B2AE9CE2700E0B25D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC392AE9CE2700E0B25D /* Main.storyboard */; };
 		356CFC3D2AE9CE2A00E0B25D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC3C2AE9CE2A00E0B25D /* Assets.xcassets */; };
 		356CFC402AE9CE2A00E0B25D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356CFC3E2AE9CE2A00E0B25D /* LaunchScreen.storyboard */; };
+		35C5520B2AEB323100DC87F4 /* scoredSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35C552072AEB323100DC87F4 /* scoredSFX.mp3 */; };
+		35C5520C2AEB323100DC87F4 /* ballSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35C552082AEB323100DC87F4 /* ballSFX.mp3 */; };
+		35C5520D2AEB323100DC87F4 /* winSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35C552092AEB323100DC87F4 /* winSFX.mp3 */; };
+		35C5520E2AEB323100DC87F4 /* loseSFX.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35C5520A2AEB323100DC87F4 /* loseSFX.mp3 */; };
 		FBBFB33C2AEAEDC600CBBB6B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFB33B2AEAEDC600CBBB6B /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +32,10 @@
 		356CFC3A2AE9CE2700E0B25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		356CFC3C2AE9CE2A00E0B25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		356CFC3F2AE9CE2A00E0B25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		35C552072AEB323100DC87F4 /* scoredSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scoredSFX.mp3; sourceTree = "<group>"; };
+		35C552082AEB323100DC87F4 /* ballSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ballSFX.mp3; sourceTree = "<group>"; };
+		35C552092AEB323100DC87F4 /* winSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winSFX.mp3; sourceTree = "<group>"; };
+		35C5520A2AEB323100DC87F4 /* loseSFX.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loseSFX.mp3; sourceTree = "<group>"; };
 		FBBFB33B2AEAEDC600CBBB6B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,14 +72,26 @@
 				356CFC2F2AE9CE2700E0B25D /* AppDelegate.swift */,
 				356CFC312AE9CE2700E0B25D /* GameScene.sks */,
 				356CFC332AE9CE2700E0B25D /* Actions.sks */,
-				356CFC352AE9CE2700E0B25D /* GameScene.swift */,
+				35C552062AEB31F500DC87F4 /* Sounds */,
 				FBBFB33B2AEAEDC600CBBB6B /* GameOverScene.swift */,
 				356CFC372AE9CE2700E0B25D /* GameViewController.swift */,
 				356CFC392AE9CE2700E0B25D /* Main.storyboard */,
 				356CFC3C2AE9CE2A00E0B25D /* Assets.xcassets */,
 				356CFC3E2AE9CE2A00E0B25D /* LaunchScreen.storyboard */,
+				356CFC352AE9CE2700E0B25D /* GameScene.swift */,
 			);
 			path = PongPlus;
+			sourceTree = "<group>";
+		};
+		35C552062AEB31F500DC87F4 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				35C552082AEB323100DC87F4 /* ballSFX.mp3 */,
+				35C5520A2AEB323100DC87F4 /* loseSFX.mp3 */,
+				35C552072AEB323100DC87F4 /* scoredSFX.mp3 */,
+				35C552092AEB323100DC87F4 /* winSFX.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,11 +152,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C5520C2AEB323100DC87F4 /* ballSFX.mp3 in Resources */,
 				356CFC3B2AE9CE2700E0B25D /* Main.storyboard in Resources */,
 				356CFC322AE9CE2700E0B25D /* GameScene.sks in Resources */,
 				356CFC3D2AE9CE2A00E0B25D /* Assets.xcassets in Resources */,
 				356CFC402AE9CE2A00E0B25D /* LaunchScreen.storyboard in Resources */,
+				35C5520B2AEB323100DC87F4 /* scoredSFX.mp3 in Resources */,
+				35C5520E2AEB323100DC87F4 /* loseSFX.mp3 in Resources */,
 				356CFC342AE9CE2700E0B25D /* Actions.sks in Resources */,
+				35C5520D2AEB323100DC87F4 /* winSFX.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

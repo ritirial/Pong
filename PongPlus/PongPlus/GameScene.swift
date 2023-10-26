@@ -106,8 +106,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             ball.position = CGPoint(x: 0.0, y: 0.0)
             ball.zPosition = 0
             
-            //ballVelocityX = random(min: 4.0, max: 6.0) * CGFloat(randomSign())
-            //ballVelocityY = random(min: 0.0, max: 6.0) * CGFloat(randomSign())
             ballVelocityX = 7.0
             //decide quien lanza pelota
             if !fromPlayer {
@@ -126,56 +124,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //instancia
             addChild(ball)
         }
-        
-        //cambia la posición acorde a velocidad
-        //let move = SKAction.move(to: CGPoint(x: ball.position.x + ballVelocityX, y: ball.position.y + ballVelocityY), duration: TimeInterval(0.001))
-        //mueve la pelota, luego checa si ha tocado bordes
-        //ball.run(SKAction.repeatForever(SKAction.sequence([move, SKAction.run(bounceBall)])))
     }
     
     //invierte velocidad en Y para bordes arriba/abajo
     func bounceBall() {
-        //paso limite arriba
         if ball != nil {
+            //supero el limite de a
             if ball.position.y > size.height / 2 - ball.size.height / 2 - borderPadding {
                 ballVelocityY = ballVelocityY * -1
+                //sonido al rebotar
+                run(SKAction.playSoundFileNamed("ballSFX.mp3", waitForCompletion: false))
             }
             //paso limite abajo
             if ball.position.y < -size.height / 2 + ball.size.height / 2 + borderPadding {
                 ballVelocityY = ballVelocityY * -1
+                //sonido al rebotar
+                run(SKAction.playSoundFileNamed("ballSFX.mp3", waitForCompletion: false))
             }
         }
     }
     
     //mueve al oponente para alcanzar posicion de pelota
     func catchBall() {
-        if ball != nil {
-            var newPositionY = opponent.position.y
-            //paso limite arriba
-            if ball.position.y > opponent.position.y + opponent.size.height / 2 {
-                newPositionY += opponentVelocity
-            }
-            //paso limite abajo
-            if ball.position.y < opponent.position.y - opponent.size.height / 2 {
-                newPositionY -= opponentVelocity
-            }
-            
-            //let move = SKAction.move(to: CGPoint(x: opponent.position.x, y: newPositionY), duration: TimeInterval(opponentReactionTime))
-            //opponent.run(move)
+        
+        //posición inical del Sprite oponente
+        var newPositionY = opponent.position.y
+        
+        //pelota arriba del oponente
+        if ball.position.y > opponent.position.y + opponent.size.height / 2 {
+            newPositionY += opponentVelocity
         }
+        //pelota abajo del oponente
+        if ball.position.y < opponent.position.y - opponent.size.height / 2 {
+            newPositionY -= opponentVelocity
+        }
+        
+        //actualiza posiciòn del Sprite oponente
+        opponent.position.y = newPositionY
     }
     
-    //llamada cuando se dectò colisiòn entre barra y pelota
+    //llamada cuando se dectó colisión entre barra y pelota
     func ballCollidedWithBar(bar: SKSpriteNode, ball: SKSpriteNode) {
-        //aumenta velocidad en x
+        //aumenta velocidad de pelota en x
         ballVelocityX = ballVelocityX + (ballVelocityX > 0 ? ballVelocityIncrease : -ballVelocityIncrease)
         //invierte la velocidad en x (rebote)
         ballVelocityX = ballVelocityX * -1
         
-        print(ballVelocityX)
-        
-        //desvia pelota en Y dependiendo de distancia al centro de la barra
+        //desvía pelota en Y si rebota lejos del centro de la barra
         ballVelocityY = 10.0 * (ball.position.y - bar.position.y) / (bar.size.height / 2)
+        
+        //sonido al colisionar
+        run(SKAction.playSoundFileNamed("ballSFX.mp3", waitForCompletion: false))
     }
     
     //listener de colisiones
@@ -201,30 +200,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameStart.isHidden = true
         gameResult.isHidden = true
 
-        //lanza pelota
-        //run(SKAction.run(launchBall))
         //lanzamiento inicial hacia el jugador
         launchBall(fromPlayer: false)
-        //activar movimiento oponente
-        //run(SKAction.repeatForever(SKAction.sequence([SKAction.run(catchBall), SKAction.wait(forDuration: opponentReactionTime)])))
     }
     
-    
+    //valida si ya ha terminado el juego
     func gameOver() {
         var fin = false
-        if scorePlayer == 5 {
+        if scorePlayer == 3 {
             gameResult.text = "Ganaste !!"
             fin = true
-        } else if scoreOponent == 5 {
+            run(SKAction.playSoundFileNamed("winSFX.mp3", waitForCompletion: false))
+        } else if scoreOponent == 3 {
             gameResult.text = "Perdiste :["
             fin = true
+            run(SKAction.playSoundFileNamed("loseSFX.mp3", waitForCompletion: false))
         }
         if fin {
             //reinicia posicion de barras
             player.position.y = 0.0
             opponent.position.y = 0.0
             
-            //oculta boton "Comenzar"
+            //muestra resultado y botón "Comenzar"
+            gameStart.text = "Revancha"
             gameStart.isHidden = false
             gameResult.isHidden = false
         }
@@ -269,7 +267,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //se ejecuta cada frame
     override func update(_ currentTime: TimeInterval) {
-        //solo ejecuta codigo si la partida ha conezado
+        //solo ejecuta codigo si la partida ha comenzado
         if gameStart.isHidden {
             //valida si el usuario esta manteniendo el boton de mover arriba
             if movePlayerUp {
@@ -287,16 +285,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //valida que hay una pelota instanciada
             if ball != nil {
                 
-                var newPositionY = opponent.position.y
-                //paso limite arriba
-                if ball.position.y > opponent.position.y + opponent.size.height / 2 {
-                    newPositionY += opponentVelocity
-                }
-                //paso limite abajo
-                if ball.position.y < opponent.position.y - opponent.size.height / 2 {
-                    newPositionY -= opponentVelocity
-                }
-                opponent.position.y = newPositionY
+                //mueve al oponente para atrapar la pelota
+                catchBall()
                 
                 //detecta si la pelota ha salido de pantalla
                 if ball.position.x < -fondo.size.width / 2 - ball.size.width / 2 {
@@ -304,6 +294,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     ball.removeFromParent()
                     scoreOponent += 1
                     scoreOpponentLabel.text = String(scoreOponent)
+                    run(SKAction.playSoundFileNamed("scoredSFX.mp3", waitForCompletion: false))
                     gameOver()
                     launchBall(fromPlayer: true)
                 } else if ball.position.x > fondo.size.width / 2 + ball.size.width / 2 {
@@ -311,6 +302,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     ball.removeFromParent()
                     scorePlayer += 1
                     scorePlayerLabel.text = String(scorePlayer)
+                    run(SKAction.playSoundFileNamed("scoredSFX.mp3", waitForCompletion: false))
                     gameOver()
                     launchBall(fromPlayer: false)
                 } else {
